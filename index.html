@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- main css -->
+    <title>International Audit Consulting</title>
     <link rel="stylesheet" href="style.css" />
-    <!-- tailwind cdn -->
     <script src="tailwind.js"></script>
     <script>
         tailwind.config = {
@@ -27,193 +25,202 @@
             },
         }
     </script>
-    <!-- poppins font -->
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-    <!-- swiper carusel -->
     <link rel="stylesheet" href="carusel.css" />
 </head>
 
 <body>
     <!-- navbar -->
-    <div class="fixed top-0 w-full xl:bg-teal-500 z-[200000]">
-        <div class="divide">
-            <div class="flex items-center gap-4 justify-between w-full bg-teal-500 px-5 py-5 md:px-10 ">
-                <div class="flex items-center gap-3">
-                    <img src="Images/logo.png" class="w-[7rem] md:w-[200px]" alt="logo" />
-                    <div>
-                        <a href="#content" class="md:text-[24px] text-white font-[700]">
-                            <h1 class="text-[13px]"><span class="hidden sm:block">Аудиторская организация
-                                    ООО</span>«INTERNATIONAL AUDIT CONSULTING»</h1>
-                        </a>
-                    </div>
+    <nav class="fixed top-0 left-0 w-full z-[200000] bg-teal-600/95 navbar-glass shadow-lg">
+        <div class="flex items-center justify-between px-4 md:px-10 h-16 md:h-20">
+            <!-- logo -->
+            <a href="#content" class="flex items-center gap-3 shrink-0 min-w-0">
+                <img src="./Images/logo.png" class="w-20 md:w-36 drop-shadow-md shrink-0" alt="logo" />
+                <div class="text-white font-bold text-xs md:text-sm lg:text-base leading-tight min-w-0">
+                    <span class="hidden sm:block truncate" data-i18n="navOrgName">Аудиторская организация ООО</span>
+                    <span class="truncate block">«INTERNATIONAL AUDIT CONSULTING»</span>
                 </div>
-                <div id="bar" class="transition-all xl:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
-                    </svg>
-
-                </div>
-            </div>
-            <ul id="ul"
-                class="flex flex-col px-5  md:px-10 bg-teal-500 ul transition-all delay-300 xl:flex-row h-[0px] xl:h-auto overflow-hidden justify-between text-white font-[600] items-center">
+            </a>
+            <!-- desktop nav -->
+            <ul class="hidden xl:flex items-center gap-6 text-white font-semibold text-base lg:text-lg">
                 <li>
-                    <a class="flex justify-start items-center gap-2" href="#content"><img src="./Images/info.png"
-                            class="w-[20px]" alt="image" />О нас</a>
+                    <a class="flex items-center gap-2 hover:text-teal-200 transition-colors" href="#content">
+                        <img src="./Images/info.png" class="w-5" alt="" />
+                        <span data-i18n="navAbout">О нас</span>
+                    </a>
                 </li>
                 <li>
-                    <a class="flex justify-start items-center gap-2" href="#swiper"><img
-                            src="./Images/customer-service.png" class="w-[20px]" alt="image" />Услуги</a>
+                    <a class="flex items-center gap-2 hover:text-teal-200 transition-colors" href="#services">
+                        <img src="./Images/customer-service.png" class="w-5" alt="" />
+                        <span data-i18n="navServices">Услуги</span>
+                    </a>
                 </li>
                 <li>
-                    <a class="flex justify-start items-center gap-2" href="#footer"><img src="./Images/phone.png"
-                            class="w-[20px]" alt="image" />Контакты</a>
+                    <a class="flex items-center gap-2 hover:text-teal-200 transition-colors" href="#footer">
+                        <img src="./Images/phone.png" class="w-5" alt="" />
+                        <span data-i18n="navContacts">Контакты</span>
+                    </a>
                 </li>
-                <li class="pb-2">
-                    <select id="" class="bg-emerald-600 py-1 outline-none rounded-md px-3">
+                <li>
+                    <select id="langSelect" class="bg-teal-700 py-1.5 outline-none rounded-lg px-3 cursor-pointer hover:bg-teal-800 transition-colors text-white">
+                        <option value="rus">RUS</option>
+                        <option value="uzb">UZB</option>
+                        <option value="eng">ENG</option>
+                    </select>
+                </li>
+            </ul>
+            <!-- mobile burger -->
+            <button id="bar" class="xl:hidden text-white p-2 transition-transform" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="w-7 h-7">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+                </svg>
+            </button>
+        </div>
+        <!-- mobile nav -->
+        <div id="mobileMenu" class="xl:hidden overflow-hidden max-h-0 transition-all duration-300">
+            <ul class="flex flex-col gap-3 px-4 pb-4 text-white font-semibold text-sm">
+                <li>
+                    <a class="flex items-center gap-2 hover:text-teal-200 transition-colors py-1" href="#content">
+                        <img src="./Images/info.png" class="w-5" alt="" />
+                        <span data-i18n="navAbout">О нас</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="flex items-center gap-2 hover:text-teal-200 transition-colors py-1" href="#services">
+                        <img src="./Images/customer-service.png" class="w-5" alt="" />
+                        <span data-i18n="navServices">Услуги</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="flex items-center gap-2 hover:text-teal-200 transition-colors py-1" href="#footer">
+                        <img src="./Images/phone.png" class="w-5" alt="" />
+                        <span data-i18n="navContacts">Контакты</span>
+                    </a>
+                </li>
+                <li>
+                    <select id="langSelectMobile" class="bg-teal-700 py-1.5 outline-none rounded-lg px-3 cursor-pointer hover:bg-teal-800 transition-colors text-white w-full">
+                        <option value="rus">RUS</option>
                         <option value="uzb">UZB</option>
                         <option value="eng">ENG</option>
                     </select>
                 </li>
             </ul>
         </div>
-    </div>
-    <!-- navbar -->
-    <!-- content -->
-    <div id='content' class='bg flex flex-col justify-center items-start px-3 md:px-10 lg:px-20 pt-9'>
-        <div class='d-grid'>
-            <div>
-                <h1 class='text-[4em] md:text-[6em] font-bold'>О нас</h1>
-                <p class='text-[1em] md:text-[1.5em] font-semibold'>Аудиторская организация ООО «INTERNATIONAL AUDIT
-                    CONSULTING» осуществляет свою деятельность на основании свидетельство РУз. №1106607 от 03 марта
-                    2022г.</p>
-            </div>
+    </nav>
+    <!-- navbar end -->
+
+    <!-- hero -->
+    <section id="content" class="bg flex flex-col justify-center px-5 md:px-10 lg:px-20 pt-20">
+        <div class="max-w-3xl">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white drop-shadow-lg leading-tight" data-i18n="heroTitle">О нас</h1>
+            <p class="text-base sm:text-lg md:text-xl font-semibold text-white/90 mt-4 leading-relaxed drop-shadow-md" data-i18n="heroText">
+                Аудиторская организация ООО «INTERNATIONAL AUDIT CONSULTING» осуществляет свою деятельность на основании свидетельство РУз. №1106607 от 03 марта 2022г.
+            </p>
         </div>
-    </div>
-    <!-- content -->
-    <!-- carausel -->
-    <div class="p-4 py-14 items-center">
-        <h1 class="text-[50px] font-bold text-center">Услуги</h1>
-        <div class="swiper mySwiper ">
+    </section>
+    <!-- hero end -->
+
+    <!-- services -->
+    <section id="services" class="px-4 md:px-8 lg:px-16 py-16 md:py-20">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-800 mb-10" data-i18n="servicesTitle">Услуги</h2>
+        <div class="swiper mySwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div>
-                        <div class="card-img aspect-[3/3]">
-                            <img src="./Images/card_1.jpg" alt="card_img_1" class="w-full" />
+                        <div class="card-img aspect-square">
+                            <img src="./Images/card_1.jpg" alt="card_img_1" class="w-full h-full object-cover" />
                         </div>
-                        <div class="card-body p-5 px-8 bg-white">
-                            <h4 class='items-center text-center text-xl flex flex-col gap-3 mb-5'>
-                                <div>Подготовка организаций к</div>
-                                <div>Аудиторской проверке по</div>
-                                <div>Международным</div>
-                                <div>стандартам аудита (MCA) и</div>
-                                <div>Национальным стандартам</div>
-                                <div>аудита (НCA)</div>
-                            </h4>
+                        <div class="card-body p-5 bg-white">
+                            <p class="text-center text-base md:text-lg font-medium leading-relaxed" data-i18n="service1">
+                                Подготовка организаций к Аудиторской проверке по Международным стандартам аудита (MCA) и Национальным стандартам аудита (НCA)
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div>
-                        <div class=" card-img aspect-[3/3]">
-                            <img src="./Images/card_2.jpg" alt="card_img_2" class="w-full" />
+                        <div class="card-img aspect-square">
+                            <img src="./Images/card_2.jpg" alt="card_img_2" class="w-full h-full object-cover" />
                         </div>
-                        <div class="card-body p-5 px-8 bg-white">
-                            <h4 class='items-center text-center text-xl flex flex-col gap-3 mb-5'>
-                                <div>Ведение бухгалтерского</div>
-                                <div>учета 1C (OUTSOURCING)</div>
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div>
-                        <div class=" card-img aspect-[3/3]">
-                            <img src="./Images/card_3.jpg" alt="card_img_3" class="w-full" />
-                        </div>
-                        <div class="card-body p-5 px-8 bg-white">
-                            <h4 class='items-center text-center text-xl flex flex-col gap-3 mb-5'>
-                                <div>Помощь в сдаче налоговых,</div>
-                                <div>стат. отчётов и в сдаче</div>
-                                <div>отчётов местным</div>
-                                <div>организациям</div>
-                            </h4>
+                        <div class="card-body p-5 bg-white">
+                            <p class="text-center text-base md:text-lg font-medium leading-relaxed" data-i18n="service2">
+                                Ведение бухгалтерского учета 1C (OUTSOURCING)
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div>
-                        <div class=" card-img aspect-[3/3]">
-                            <img src="./Images/card_4.jpg" alt="card_img_4" class="w-full" />
+                        <div class="card-img aspect-square">
+                            <img src="./Images/card_3.jpg" alt="card_img_3" class="w-full h-full object-cover" />
                         </div>
-                        <div class="card-body p-5 px-8 bg-white">
-                            <h4 class='items-center text-center text-xl flex flex-col gap-3 mb-5'>
-                                <div>Консалтинговые услуги в</div>
-                                <div>сфере оформления</div>
-                                <div>экспортно-импортных</div>
-                                <div>контрактов и таможенных</div>
-                                <div>документов</div>
-                                <div>аудита (НCA)</div>
-                            </h4>
+                        <div class="card-body p-5 bg-white">
+                            <p class="text-center text-base md:text-lg font-medium leading-relaxed" data-i18n="service3">
+                                Помощь в сдаче налоговых, стат. отчётов и в сдаче отчётов местным организациям
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div>
-                        <div class=" card-img aspect-[3/3]">
-                            <img src="./Images/card_5.jpg" alt="card_img_5" class="w-full" />
+                        <div class="card-img aspect-square">
+                            <img src="./Images/card_4.jpg" alt="card_img_4" class="w-full h-full object-cover" />
                         </div>
-                        <div class="card-body p-5 px-8 bg-white">
-                            <h4 class='items-center text-center text-xl flex flex-col gap-3 mb-5'>
-                                <div>Ежеквартальные,</div>
-                                <div>ежемесячные и другие</div>
-                                <div>консалтинговые услуги</div>
-                            </h4>
+                        <div class="card-body p-5 bg-white">
+                            <p class="text-center text-base md:text-lg font-medium leading-relaxed" data-i18n="service4">
+                                Консалтинговые услуги в сфере оформления экспортно-импортных контрактов и таможенных документов
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div>
-                        <div class=" card-img aspect-[3/3]">
-                            <img src="./Images/card_6.jpg" alt="card_img_6" class="w-full" />
+                        <div class="card-img aspect-square">
+                            <img src="./Images/card_5.jpg" alt="card_img_5" class="w-full h-full object-cover" />
                         </div>
-                        <div class="card-body p-5 px-8 bg-white">
-                            <h4 class='items-center text-center text-xl flex flex-col gap-3 mb-5'>
-                                <div>Трансформация</div>
-                                <div>бухгалтерской отчётности</div>
-                                <div>согласно МСФО</div>
-                            </h4>
+                        <div class="card-body p-5 bg-white">
+                            <p class="text-center text-base md:text-lg font-medium leading-relaxed" data-i18n="service5">
+                                Ежеквартальные, ежемесячные и другие консалтинговые услуги
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div>
-                        <div class=" card-img aspect-[3/3]">
-                            <img src="./Images/card_7.jpg" alt="card_img_7" class="w-full" />
+                        <div class="card-img aspect-square">
+                            <img src="./Images/card_6.jpg" alt="card_img_6" class="w-full h-full object-cover" />
                         </div>
-                        <div class="card-body p-5 px-8 bg-white">
-                            <h4 class='items-center text-center text-xl flex flex-col gap-3 mb-5'>
-                                <div>Восстановление</div>
-                                <div>бухгалтерского учёта</div>
-                                <div>малых и крупных</div>
-                                <div>предприятий</div>
-                            </h4>
+                        <div class="card-body p-5 bg-white">
+                            <p class="text-center text-base md:text-lg font-medium leading-relaxed" data-i18n="service6">
+                                Трансформация бухгалтерской отчётности согласно МСФО
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div>
-                        <div class=" card-img aspect-[3/3]">
-                            <img src="./Images/card_8.jpg" alt="card_img_8" class="w-full" />
+                        <div class="card-img aspect-square">
+                            <img src="./Images/card_7.jpg" alt="card_img_7" class="w-full h-full object-cover" />
                         </div>
-                        <div class="card-body p-5 px-8 bg-white">
-                            <h4 class='items-center text-center text-xl flex flex-col gap-3 mb-5'>
-                                <div>Составление финансового</div>
-                                <div>ковенанта и учётной политики</div>
-                                <div>организаций</div>
-                            </h4>
+                        <div class="card-body p-5 bg-white">
+                            <p class="text-center text-base md:text-lg font-medium leading-relaxed" data-i18n="service7">
+                                Восстановление бухгалтерского учёта малых и крупных предприятий
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div>
+                        <div class="card-img aspect-square">
+                            <img src="./Images/card_8.jpg" alt="card_img_8" class="w-full h-full object-cover" />
+                        </div>
+                        <div class="card-body p-5 bg-white">
+                            <p class="text-center text-base md:text-lg font-medium leading-relaxed" data-i18n="service8">
+                                Составление финансового ковенанта и учётной политики организаций
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -222,92 +229,90 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
         </div>
-    </div>
-    <!-- carausel -->
-    <!-- number -->
-    <div class='fixed z-[15000] top-[28%] left-3'>
-        <div
-            class="border-teal-600 border-[3px] p-2 md:p-3 lg:p-4 bg-yellow-500 rounded-md animate-right  text-white px-3 md:px-4 lg:px-6 text-[10px] md:text-[15px]">
-            <a href="tel:+998999091117" class="">+998 99 909 11 17</a>
+    </section>
+    <!-- services end -->
+
+    <!-- floating phone -->
+    <div class="fixed z-[15000] top-1/3 left-3">
+        <div class="border-teal-600 border-2 p-2 md:p-3 bg-yellow-500 rounded-xl animate-right text-white px-3 md:px-5 text-xs md:text-sm shadow-lg hover:bg-yellow-400 transition-colors font-semibold">
+            <a href="tel:+998999091117">+998 99 909 11 17</a>
         </div>
     </div>
-    <!-- number -->
-    <!-- body -->
-    <div class='grid grid-cols-1 md:grid-cols-2 min-h-[50vh]'>
-        <!-- form -->
-        <div class='bg-teal-600 p-5 py-14 md:py-18 flex flex-col justify-center'>
-            <div class='flex justify-center'>
-                <div>
-                    <h2 class="mb-5 text-4xl font-bold text-white">Оставить заявку</h2>
-                    <form action="" class='flex flex-col gap-6'>
-                        <input required placeholder='Имя' type="text"
-                            class="bg-white p-3 outline-none text-xl rounded-md transition-all border delay-150 focus:bg-transparent focus:shadow-2xl placeholder:text-slate-600" />
-                        <input required placeholder='Телефон' type="number"
-                            class="bg-white p-3 outline-none text-xl rounded-md transition-all border delay-150 focus:bg-transparent focus:shadow-2xl placeholder:text-slate-600" />
-                        <button
-                            class="bg-slate-900 px-5 py-3 text-xl rounded-md text-white font-semibold border border-slate-900 transition-all delay-150 hover:bg-transparent hover:text-slate-900">Отправить</button>
-                    </form>
-                </div>
+
+    <!-- form + map -->
+    <section class="grid grid-cols-1 md:grid-cols-2">
+        <div class="bg-gradient-to-br from-teal-600 to-teal-700 p-6 py-14 md:py-20 flex flex-col justify-center items-center">
+            <div class="w-full max-w-md">
+                <h2 class="mb-8 text-3xl md:text-4xl font-bold text-white" data-i18n="formTitle">Оставить заявку</h2>
+                <form action="" class="flex flex-col gap-5">
+                    <input required type="text"
+                        class="bg-white/95 p-3.5 outline-none text-base md:text-lg rounded-xl transition-all border border-transparent focus:bg-white focus:border-teal-300 placeholder:text-slate-500"
+                        data-i18n-placeholder="formName" placeholder="Имя" />
+                    <input required type="tel"
+                        class="bg-white/95 p-3.5 outline-none text-base md:text-lg rounded-xl transition-all border border-transparent focus:bg-white focus:border-teal-300 placeholder:text-slate-500"
+                        data-i18n-placeholder="formPhone" placeholder="Телефон" />
+                    <button type="submit"
+                        class="bg-slate-900 px-5 py-3.5 text-base md:text-lg rounded-xl text-white font-semibold border-2 border-slate-900 transition-all hover:bg-white hover:text-slate-900 hover:shadow-lg active:scale-[0.98]"
+                        data-i18n="formSubmit">Отправить</button>
+                </form>
             </div>
         </div>
-        <!-- form -->
-        <!-- map -->
-        <div class='bg-teal-600 min-h-[20rem] md:min-h-0'>
+        <div class="min-h-[300px] md:min-h-[400px]">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12084.051699914822!2d72.3125006!3d40.78373!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bceb555645cf0b%3A0x643832eddd8e421c!2sKhamkor%20Biznes%20Tsentr!5e0!3m2!1sen!2s!4v1704364377656!5m2!1sen!2s"
                 width="100%" height="100%" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                referrerpolicy="no-referrer-when-downgrade" class="block"></iframe>
         </div>
-        <!-- map -->
-    </div>
-    <!-- body -->
-    <!-- top -->
-    <div class='fixed bottom-2 right-4 z-[1000]'>
+    </section>
+
+    <!-- scroll to top -->
+    <div id="scrollTopBtn" class="fixed bottom-6 right-6 z-[1000] opacity-0 translate-y-4 pointer-events-none transition-all duration-300">
         <a href="#content">
-            <button>
-                <img src="./Images/arrow.png" alt="up" class='animate-bounce w-10' />
+            <button class="group bg-gradient-to-br from-teal-500 to-teal-700 w-14 h-14 rounded-2xl shadow-[0_4px_20px_rgba(13,148,136,0.4)] hover:shadow-[0_8px_30px_rgba(13,148,136,0.6)] hover:scale-110 transition-all duration-300 active:scale-95 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="white" class="w-6 h-6 group-hover:-translate-y-0.5 transition-transform duration-300">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                </svg>
             </button>
         </a>
     </div>
-    <!-- top -->
+
     <!-- footer -->
-    <div id="footer" class='bg-teal-600/40 py-6 md:py-10 lg:py-14'>
-        <div class="py-4 px-16">
-            <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-                <li class='mb-6 lg:mb-0 items-center'>
-                    <p class="text-2xl font-bold text-teal-800 mb-2">Адрес:</p>
-                    <p class="text-xl font-[500]">г.Андижан, улица Бобуршох, 56</p>
-                </li>
-                <li class='mb-6 lg:mb-0 items-center'>
-                    <p class="text-2xl font-bold text-teal-800 mb-2">Рабочее время:</p>
-                    <p class="text-xl font-[500]">Пн - Пт 9:00 - 18:00 Суббота и Воскресенье выходной день</p>
-                </li>
-                <li class='mb-6 md:mb-0 items-center'>
-                    <p class="text-2xl font-bold text-teal-800 mb-2">Email</p>
+    <footer id="footer" class="bg-gradient-to-b from-teal-50 to-teal-100 py-8 md:py-12 lg:py-16">
+        <div class="px-5 md:px-10 lg:px-16">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <p class="text-lg md:text-xl font-bold text-teal-700 mb-2" data-i18n="footerAddress">Адрес:</p>
+                    <p class="text-base md:text-lg font-medium text-gray-700" data-i18n="footerAddressVal">г.Андижан, улица Бобуршох, 56</p>
+                </div>
+                <div>
+                    <p class="text-lg md:text-xl font-bold text-teal-700 mb-2" data-i18n="footerHours">Рабочее время:</p>
+                    <p class="text-base md:text-lg font-medium text-gray-700" data-i18n="footerHoursVal">Пн - Пт 9:00 - 18:00<br>Суббота и Воскресенье выходной день</p>
+                </div>
+                <div>
+                    <p class="text-lg md:text-xl font-bold text-teal-700 mb-2">Email</p>
                     <a href="mailto:haydarov.lochinbek@yandex.ru"
-                        class="text-xl font-[500] break-words">haydarov.lochinbek@yandex.ru</a>
-                </li>
-                <li class='items-center'>
-                    <p class="text-2xl font-bold text-teal-800 mb-2">Контакты:</p>
-                    <a href="tel:+998999091117" class="text-xl font-[500]">+998 99 909 11 17</a>
-                </li>
-            </ul>
+                        class="text-base md:text-lg font-medium break-words text-gray-700 hover:text-teal-600 transition-colors">haydarov.lochinbek@yandex.ru</a>
+                </div>
+                <div>
+                    <p class="text-lg md:text-xl font-bold text-teal-700 mb-2" data-i18n="footerContacts">Контакты:</p>
+                    <a href="tel:+998999091117" class="text-base md:text-lg font-medium text-gray-700 hover:text-teal-600 transition-colors">+998 99 909 11 17</a>
+                </div>
+            </div>
         </div>
-        <div>
-            <hr />
-            <p class="text-2xl px-16 mt-4 font-[500]">© Copyright 2024</p>
+        <div class="px-5 md:px-10 lg:px-16 mt-8">
+            <hr class="border-teal-200" />
+            <p class="text-base mt-4 font-medium text-gray-500">&copy; Copyright 2024</p>
         </div>
-    </div>
-    <!-- footer -->
+    </footer>
+    <!-- footer end -->
+
     <script src="app.js"></script>
     <script src="carausel.js"></script>
 
-    <!-- Initialize Swiper -->
     <script>
         var swiper = new Swiper(".mySwiper", {
             spaceBetween: 30,
             loop: true,
-            navigation: true,
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
@@ -321,21 +326,20 @@
                 prevEl: ".swiper-button-prev",
             },
             breakpoints: {
-                440: {
+                0: {
                     slidesPerView: 1,
-                    spaceBetween: 20,
+                    spaceBetween: 16,
                 },
-                768: {
+                640: {
                     slidesPerView: 2,
-                    spaceBetween: 40,
+                    spaceBetween: 20,
                 },
                 1024: {
                     slidesPerView: 3,
-                    spaceBetween: 50,
+                    spaceBetween: 30,
                 },
             }
-        }
-        );
+        });
     </script>
 </body>
 
