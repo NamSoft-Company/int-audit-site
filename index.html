@@ -257,11 +257,21 @@
                 </form>
             </div>
         </div>
-        <div class="min-h-[300px] md:min-h-[400px]">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12084.051699914822!2d72.3125006!3d40.78373!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bceb555645cf0b%3A0x643832eddd8e421c!2sKhamkor%20Biznes%20Tsentr!5e0!3m2!1sen!2s!4v1704364377656!5m2!1sen!2s"
-                width="100%" height="100%" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade" class="block"></iframe>
+        <div class="flex flex-col min-h-[300px] md:min-h-[400px]">
+            <div class="flex-1 relative">
+                <p class="absolute top-2 left-2 z-10 bg-teal-600 text-white text-xs md:text-sm font-semibold px-3 py-1 rounded-lg shadow" data-i18n="mapLabel1">Андижон</p>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3021.0!2d72.35785!3d40.761831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDQ1JzQyLjYiTiA3MsKwMjEnMjguMyJF!5e0!3m2!1sen!2s"
+                    width="100%" height="100%" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" class="block"></iframe>
+            </div>
+            <div class="flex-1 relative">
+                <p class="absolute top-2 left-2 z-10 bg-teal-600 text-white text-xs md:text-sm font-semibold px-3 py-1 rounded-lg shadow" data-i18n="mapLabel2">Тошкент</p>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2996.0!2d69.248899!3d41.322358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDE5JzIwLjUiTiA2OcKwMTQnNTYuMCJF!5e0!3m2!1sen!2s"
+                    width="100%" height="100%" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" class="block"></iframe>
+            </div>
         </div>
     </section>
 
@@ -282,7 +292,8 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div>
                     <p class="text-lg md:text-xl font-bold text-teal-700 mb-2" data-i18n="footerAddress">Адрес:</p>
-                    <p class="text-base md:text-lg font-medium text-gray-700" data-i18n="footerAddressVal">г.Андижан, улица Бобуршох, 56</p>
+                    <a href="https://www.google.com/maps/place/40°45'42.6%22N+72°21'28.3%22E/@40.761831,72.3552751,17z" target="_blank" class="text-base md:text-lg font-medium text-gray-700 hover:text-teal-600 transition-colors block mb-2" data-i18n="footerAddressVal1">Андижон вилояти, Андижон шаҳар, Истиклол, дом 33</a>
+                    <a href="https://www.google.com/maps/place/41°19'20.5%22N+69°14'56.0%22E/@41.322358,69.2463241,17z" target="_blank" class="text-base md:text-lg font-medium text-gray-700 hover:text-teal-600 transition-colors block" data-i18n="footerAddressVal2">Тошкент шаҳар, Алишер Навоий кўчаси, 30 уй</a>
                 </div>
                 <div>
                     <p class="text-lg md:text-xl font-bold text-teal-700 mb-2" data-i18n="footerHours">Рабочее время:</p>
