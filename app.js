@@ -170,5 +170,5 @@ document.getElementById("langSelectMobile").addEventListener("change", (e) => {
 });
 
 // Load saved language or default to Russian
-const savedLang = localStorage.getItem("lang") || "rus";
+const savedLang = localStorage.getItem("lang") || "uzb";
 setLanguage(savedLang);
